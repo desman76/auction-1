@@ -59,7 +59,9 @@ public class BirdControllerIntegrationTest {
                 new ParameterizedTypeReference<List<Bird>>(){}
 
         );
-
+        List<Bird> birds = responseEntity.getBody();
+        assertNotNull(birds.get(0));
+        assertNotNull(birds.get(1));
     }
 
 
