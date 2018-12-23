@@ -43,6 +43,13 @@ public class AppController {
         return "user";
     }
 
+
+    @RequestMapping("/registration")
+    public String getRegistrationPage(Model model) {
+        return null;
+    }
+
+
     @RequestMapping("/admin")
     public String getAdminPage(Model model) {
         model.addAttribute("admin", "Access for admin only!");
