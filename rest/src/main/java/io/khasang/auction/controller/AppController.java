@@ -2,6 +2,7 @@ package io.khasang.auction.controller;
 
 import io.khasang.auction.model.MessageService;
 import io.khasang.auction.service.CreateTable;
+import io.khasang.auction.util.CheckText;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -9,13 +10,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class AppController {
     @Autowired
     @Qualifier("messageServiceCustom")
     private MessageService messageService;
-
+    @Autowired
+    private CheckText checkText;
     @Autowired
     private CreateTable createTable;
 
@@ -61,4 +64,9 @@ public class AppController {
         return "password";
     }
 
+    @RequestMapping(value = "/check/{text}")
+    @ResponseBody
+    public String checkText(@PathVariable("text") String text) {
+        return checkText.checkWord(text);
+    }
 }
