@@ -1,15 +1,16 @@
-package io.khasang.auction.controller;
+package com.landing.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/")
 public class AppController {
-    @RequestMapping("/")
-    public String getHellopage(Model model){
-        model.addAttribute("name","my first spring application");
+
+    @RequestMapping()
+    public String getHelloPage(Model model){
+        model.addAttribute("name", "some guest");
         return "hello";
     }
-
 }

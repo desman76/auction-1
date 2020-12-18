@@ -1,8 +1,10 @@
-package io.khasang.auction.config;
+package com.landing.config;
 
-import io.khasang.auction.config.application.WebConfig;
+import com.landing.config.application.WebConfig;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+//@Configuration
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
